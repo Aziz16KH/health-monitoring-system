@@ -1,0 +1,324 @@
+[
+    {
+        "id": "dfb1408d341f398b",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "066907c29726d265",
+        "type": "json",
+        "z": "dfb1408d341f398b",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [
+                "cd9a5c7dd6c48524"
+            ]
+        ]
+    },
+    {
+        "id": "cd9a5c7dd6c48524",
+        "type": "function",
+        "z": "dfb1408d341f398b",
+        "name": "function 1",
+        "func": "var b = JSON.parse(JSON.stringify(msg.payload));\nb=msg;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "02dd5c297f7319ed",
+                "c77a4f4766eb9e80",
+                "e5106a463f3c1adc",
+                "27286dd33ac9b64c"
+            ]
+        ]
+    },
+    {
+        "id": "02dd5c297f7319ed",
+        "type": "function",
+        "z": "dfb1408d341f398b",
+        "name": "AD8232_val",
+        "func": "msg.payload=(msg.payload.AD8232_val);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 340,
+        "wires": [
+            [
+                "3e98be175f770fab"
+            ]
+        ]
+    },
+    {
+        "id": "c77a4f4766eb9e80",
+        "type": "function",
+        "z": "dfb1408d341f398b",
+        "name": "AD8232_volt",
+        "func": "msg.payload = (msg.payload.AD8232_volt);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 400,
+        "wires": [
+            [
+                "00b333fab21bf27d"
+            ]
+        ]
+    },
+    {
+        "id": "e5106a463f3c1adc",
+        "type": "function",
+        "z": "dfb1408d341f398b",
+        "name": "KY039_val",
+        "func": "msg.payload = (msg.payload.KY039_val);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 460,
+        "wires": [
+            [
+                "da31914f35387596"
+            ]
+        ]
+    },
+    {
+        "id": "27286dd33ac9b64c",
+        "type": "function",
+        "z": "dfb1408d341f398b",
+        "name": "BPM",
+        "func": "msg.payload = (msg.payload.Heart_rate);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 520,
+        "wires": [
+            [
+                "3b5e0ca8f611e107"
+            ]
+        ]
+    },
+    {
+        "id": "3e98be175f770fab",
+        "type": "ui_chart",
+        "z": "dfb1408d341f398b",
+        "name": "",
+        "group": "d564a24569e57f15",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "ECG",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#ff0000",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3b5e0ca8f611e107",
+        "type": "ui_text",
+        "z": "dfb1408d341f398b",
+        "group": "7340bdc3b51d1992",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Heart Rate",
+        "format": "{{value}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1010,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "0aca765646e2b119",
+        "type": "serial in",
+        "z": "dfb1408d341f398b",
+        "name": "",
+        "serial": "2be16c73906d7484",
+        "x": 270,
+        "y": 400,
+        "wires": [
+            [
+                "066907c29726d265"
+            ]
+        ]
+    },
+    {
+        "id": "da31914f35387596",
+        "type": "ui_chart",
+        "z": "dfb1408d341f398b",
+        "name": "",
+        "group": "7340bdc3b51d1992",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Pulse sensor value",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#24a824",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "00b333fab21bf27d",
+        "type": "ui_text",
+        "z": "dfb1408d341f398b",
+        "group": "d564a24569e57f15",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ECG Voltage",
+        "format": "{{value}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1030,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "d564a24569e57f15",
+        "type": "ui_group",
+        "name": "ECG",
+        "tab": "0d7fa7701ec41841",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7340bdc3b51d1992",
+        "type": "ui_group",
+        "name": "Heart Rate",
+        "tab": "0d7fa7701ec41841",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2be16c73906d7484",
+        "type": "serial-port",
+        "name": "Com7",
+        "serialport": "COM7",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "0d7fa7701ec41841",
+        "type": "ui_tab",
+        "name": "Healthcare Monitoring System",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
